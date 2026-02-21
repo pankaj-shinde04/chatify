@@ -6,7 +6,9 @@ import { ENV } from "../lib/env.js";
 
 export const signup = async (req, res) => {
   const { fullName, email, password } = req.body;
-
+   if(!email || !password ){
+    return res.status(400).json({ message: "Please provide all required fields" });
+   } 
   try {
     if (!fullName || !email || !password) {
       return res
