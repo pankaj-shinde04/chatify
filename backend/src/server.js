@@ -1,4 +1,5 @@
 import express from 'express';
+import cookieParser from 'cookie-parser';
 import path from 'path';
 
 
@@ -17,6 +18,7 @@ const PORT = ENV.PORT || 3001;
 
 
 app.use(express.json()); // for parsing application/json
+app.use(cookieParser()); // for parsing cookies
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
