@@ -18,7 +18,7 @@ const __dirname = path.resolve();
 const PORT = ENV.PORT || 3001;
 
 
-app.use(express.json()); // for parsing application/json
+app.use(express.json({limit: "5mb"})); // for parsing application/json
 app.use(cors({origin:ENV.CLIENT_URL, credentials:true})); // enable CORS for the frontend URL
 app.use(cookieParser()); // for parsing cookies
 
